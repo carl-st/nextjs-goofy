@@ -1,0 +1,28 @@
+{
+  "name": "nextjs-goofy",
+  "version": "1.0.0",
+  "description": "Goofing around with Next.js!",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carl-st/nextjs-goofy.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carl-st/nextjs-goofy/issues"
+  },
+  "homepage": "https://github.com/carl-st/nextjs-goofy#readme",
+  "dependencies": {
+    "next": "^9.0.3",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "yarn": "^1.17.3"
+  }
+}
