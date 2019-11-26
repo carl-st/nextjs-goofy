@@ -1,3 +1,5 @@
+import { NextPage } from 'next';
+import { ReactNode } from 'react';
 import Header from './Header';
 
 const layoutStyle = {
@@ -6,7 +8,11 @@ const layoutStyle = {
   border: '1px solid #DDD'
 };
 
-const Layout = props => (
+type Props = {
+  children: ReactNode
+}
+
+const Layout: NextPage<Props> = props => (
   <div style={layoutStyle}>
     <Header />
     {props.children}

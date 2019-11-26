@@ -1,7 +1,20 @@
+import { NextPage } from 'next';
 import fetch from 'isomorphic-unfetch';
 import Layout from '../../components/Layout';
 
-const Post = props => (
+type Post = {
+  name: string,
+  summary: string,
+  image: {
+    medium: string
+  },
+}
+
+type Props = {
+  show: Post
+}
+
+const Post: NextPage<Props> = props => (
   <Layout>
     <h1>{props.show.name}</h1>
     <p>{props.show.summary.replace(/<[/]?[pb]>/g, '')}</p>

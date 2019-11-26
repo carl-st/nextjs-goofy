@@ -1,8 +1,14 @@
+import { NextPage } from 'next';
 import fetch from 'isomorphic-unfetch';
 import Layout from '../components/Layout';
 import Link from 'next/link';
 
-const PostLink = props => (
+type PostLinkProps = {
+  id: string,
+  title: string
+}
+
+const PostLink: React.FunctionComponent<PostLinkProps> = props => (
   <li>
     <Link href="/posts/[id]" as={`/posts/${props.id}`}>
       <a>{props.title}</a>
@@ -26,8 +32,16 @@ const PostLink = props => (
   </li>
 );
 
+type Post = {
+  id: string,
+  name: string
+}
 
-const Blog = props => {
+type Props = {
+  posts: Array<Post>
+}
+
+const Blog: NextPage<Props> = props => {
   return (
     <Layout>
       <h1>Posts</h1>
@@ -47,7 +61,7 @@ const Blog = props => {
 
 Blog.getInitialProps = async function () {
   const res = await fetch('https://api.tvmaze.com/search/shows?q=batman');
-  const data = await res.json();
+  const data: Array<{ show: Post }> = await res.json();
 
   console.log(`Data fetched. Count: ${data.length}`);
 
